@@ -1,0 +1,8 @@
+{
+	"free_bitrate": "128",
+	"paid_bitrate": "320",
+    
+	"free_voices": "256",
+    "paid_voices": "512"
+}
+

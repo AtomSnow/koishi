@@ -1,0 +1,27 @@
+{
+  "name": "koishi-bot",
+  "version": "1.0.0",
+  "description": "An Discord bot for MIDI playback in Voice chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AtomSnow/koishi.git"
+  },
+  "author": "AtomSnow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AtomSnow/koishi/issues"
+  },
+  "homepage": "https://github.com/AtomSnow/koishi#readme",
+  "dependencies": {
+    "@discordjs/voice": "^0.13.0",
+    "bufferutil": "^4.0.7",
+    "discord.js": "^14.6.0",
+    "fs": "^0.0.1-security",
+    "os": "^0.1.2",
+    "zlib-sync": "^0.1.7"
+  }
+}
