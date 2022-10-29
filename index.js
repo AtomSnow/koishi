@@ -6,6 +6,16 @@ const { token } = require('./client-config.json');
 
 client.commands = new Collection();
 
+const { exec } = require('child_process');
+exec('node deploy-commands.js', (err, stdout, stderr) => {
+	if (err) {
+		console.log(`[ERROR] Couldn't deploy slash commands.`);
+		console.log(`[ERROR] stderr -> ${stderr}`);
+	  return;
+	}
+	console.log(stdout);
+});
+
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
@@ -21,20 +31,20 @@ for (const file of commandFiles) {
 }
 
 const activities_list = [
-    "Current playback threads: 1", 
-    "funny",
-    "monke", 
-    "wtf"
+    " ", 
+    " ",
+    " ", 
+    " "
     ];
 
 client.on('ready', () => {
-  console.log('[WARNING] Commands found -> ' + commandFiles)
+  console.log('[INFO] Commands found -> ' + commandFiles)
     setInterval(() => {
         const index = Math.floor(Math.random() * (activities_list.length - 1) + 1);
         client.user.setActivity(activities_list[index]);
-        console.log(`[LOG] Status updated -> ` + activities_list[index]);
+        console.log(`[INFO] Status updated -> ` + activities_list[index]);
     }, 10000);
-  console.log(`[LOG] Logged in as ${client.user.tag}!`);
+  console.log(`[INFO] Logged in as ${client.user.tag}!`);
 });
 
 client.on(Events.InteractionCreate, async interaction => {
